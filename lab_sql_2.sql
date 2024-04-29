@@ -27,10 +27,10 @@ SELECT MIN(RENTAL_DURATION)
 FROM SAKILA.FILM;
 
 -- What are the shortest and longest movie duration? Name the values max_duration and min_duration.
-SELECT MIN(LENGTH) AS min_duration
+SELECT MIN(LENGTH) AS 'min_duration'
 FROM SAKILA.FILM;
 
-SELECT MAX(LENGTH) AS max_duration
+SELECT MAX(LENGTH) AS 'max_duration'
 FROM SAKILA.FILM;
 
 -- What's the average movie duration?
@@ -47,7 +47,8 @@ FROM SAKILA.FILM
 WHERE LENGTH/60 > 3;
 
 -- Get the name and email formatted. Example: Mary SMITH - mary.smith@sakilacustomer.org.
-SELECT FIRST_NAME, LAST_NAME, EMAIL
+SELECT CONCAT(UPPER(LEFT(FIRST_NAME,1)), LOWER(RIGHT(FIRST_NAME,LENGTH(FIRST_NAME)-1))) AS 'FIRST NAME', 
+UPPER(LAST_NAME) AS 'LAST NAME', LOWER(EMAIL) AS 'EMAIL'
 FROM SAKILA.CUSTOMER;
 
 -- What's the length of the longest film title?
